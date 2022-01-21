@@ -10,6 +10,6 @@ Entity Framework Core
 
 Code First
 
-## ChanbeLog
+## ChangeLog
 
 Se crea un proyecto basico para la interaccion de la capa front con la bd con idea de refactorizarlo mas adelante con el patron repositorio ( creacion de servicios, interfaces y creacion de la capa de reopsitorio) 
