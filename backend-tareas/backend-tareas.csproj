@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>backend_tareas</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20220120114232_v1.0.cs" />
+    <Compile Remove="Migrations\20220120114232_v1.0.Designer.cs" />
+    <Compile Remove="Migrations\20220120141656_v2.0.cs" />
+    <Compile Remove="Migrations\20220120141656_v2.0.Designer.cs" />
+    <Compile Remove="Migrations\20220120144519_v1.0.cs" />
+    <Compile Remove="Migrations\20220120144519_v1.0.Designer.cs" />
+    <Compile Remove="Migrations\20220120145037_v1.0.cs" />
+    <Compile Remove="Migrations\20220120145037_v1.0.Designer.cs" />
+    <Compile Remove="Migrations\20220120150103_v1.0.cs" />
+    <Compile Remove="Migrations\20220120150103_v1.0.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.19">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+
+</Project>
