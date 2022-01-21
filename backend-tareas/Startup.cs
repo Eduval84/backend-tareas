@@ -22,6 +22,10 @@ namespace backend_tareas
         {
             //Agregamos nuestro contexto "AplicationDbContext" al contenedor de servicios y de esa manera a traves de inyeccion de dependencias vamos a poder acceder al contexto a lo largo de la aplicación
             services.AddDbContext<AplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddCors(options => options.AddPolicy("AllowWebApp", 
+                builder => builder.AllowAnyHeader()
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()));
             services.AddControllers();
         }
 
@@ -34,6 +38,8 @@ namespace backend_tareas
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors("AllowWebApp");
 
             app.UseRouting();
 
