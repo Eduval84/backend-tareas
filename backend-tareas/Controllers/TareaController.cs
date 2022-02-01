@@ -50,11 +50,16 @@ namespace backend_tareas.Controllers
             }
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] Tarea tarea)
+        [HttpDelete ("{id}") ]
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
+                var tarea = await _context.Tareas.FindAsync(id);
+                if (tarea == null)
+                {
+                    return NotFound();
+                }
                 _context.Remove(tarea);
                 await _context.SaveChangesAsync();
                 return Ok("Tarea eliminada");
@@ -66,12 +71,18 @@ namespace backend_tareas.Controllers
        
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] Tarea tarea)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id,[FromBody] Tarea tarea)
         {
             try
             {
-                _context.Update(tarea);
+                if (id != tarea.Id)
+                {
+                    return BadRequest();
+                }
+
+                tarea.Estado = !tarea.Estado;
+                _context.Entry(tarea).State= EntityState.Modified;
                 await _context.SaveChangesAsync();
                 return Ok("Tarea actualizada");
             }
